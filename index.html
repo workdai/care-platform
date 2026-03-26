@@ -330,15 +330,11 @@
             <div>
               <div class="city-name">${escapeHtml(city)}</div>
             </div>
-            <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
-              <span class="chip primary">活動 ${count} 場</span>
-              <span class="chip">據點 ${centerCount} 處</span>
-            </div>
           </div>
           
           <div style="display:flex; gap:8px; flex-wrap:nowrap; align-items:center;">
-            <a class="btn btn-secondary" style="flex:1; justify-content:center; font-size:13px; padding:9px 10px;" href="#/city?name=${encodeURIComponent(city)}">查看活動</a>
-            <a class="btn btn-secondary" style="flex:1; justify-content:center; font-size:13px; padding:9px 10px;" href="#/centers?city=${encodeURIComponent(city)}">家照據點</a>
+            <a class="btn btn-secondary" style="flex:1; justify-content:center; font-size:13px; padding:9px 10px;" href="#/city?name=${encodeURIComponent(city)}">查看活動 ${count} 場</a>
+            <a class="btn btn-secondary" style="flex:1; justify-content:center; font-size:13px; padding:9px 10px;" href="#/centers?city=${encodeURIComponent(city)}">家照據點 ${centerCount} 處</a>
           </div>
         </article>
       `;
