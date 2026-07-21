@@ -297,9 +297,11 @@
       <div class="field">
         <label>費用 <span class="req">*</span></label>
         <div class="radio-group">
-          <label class="radio-item"><input type="radio" name="fee" value="免費"> 免費</label>
-          <label class="radio-item"><input type="radio" name="fee" value="需費用"> 需費用（請在報名方式處填寫金額）</label>
-          <label class="radio-item"><input type="radio" name="fee" value="其他"> 其他</label>
+          <label class="radio-item"><input type="radio" name="fee" value="免費" onchange="onFeeChange()"> 免費</label>
+          <label class="radio-item"><input type="radio" name="fee" value="需費用" onchange="onFeeChange()"> 需費用</label>
+        </div>
+        <div class="other-input" id="fee-amount-wrap" style="margin-top:8px;">
+          <input type="text" id="fee-amount" placeholder="請填寫金額，例如：200元">
         </div>
         <div class="field-error" id="err-fee">請選擇費用方式</div>
       </div>
@@ -406,6 +408,17 @@
     centerEl.disabled = false;
   }
 
+  function onFeeChange() {
+    const val = document.querySelector('input[name="fee"]:checked')?.value;
+    const wrap = document.getElementById('fee-amount-wrap');
+    if (val === '需費用') {
+      wrap.classList.add('show');
+    } else {
+      wrap.classList.remove('show');
+      document.getElementById('fee-amount').value = '';
+    }
+  }
+
   function onCenterChange() {
     const val = document.getElementById('center').value;
     const otherWrap = document.getElementById('other-wrap');
@@ -510,7 +523,9 @@
       location: document.getElementById('location').value.trim(),
       description: document.getElementById('desc').value.trim(),
       signupNote: document.getElementById('signup').value.trim(),
-      fee: feeEl.value,
+      fee: feeEl.value === '需費用'
+        ? '需費用：' + (document.getElementById('fee-amount').value.trim() || '（未填金額）')
+        : feeEl.value,
     };
 
     const btn = document.getElementById('submit-btn');
