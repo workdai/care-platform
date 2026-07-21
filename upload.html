@@ -21,153 +21,106 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
+    background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh;
   }
-  .topbar {
-    background: var(--teal);
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .topbar-badge {
-    width: 36px; height: 36px;
-    background: rgba(255,255,255,0.25);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: #fff;
-  }
+  .topbar { background: var(--teal); padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+  .topbar-badge { width: 36px; height: 36px; background: rgba(255,255,255,0.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; }
   .topbar-title { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
   .topbar-sub { font-size: 12px; color: rgba(255,255,255,0.75); }
-
   .wrap { max-width: 680px; margin: 32px auto 60px; padding: 0 16px; }
-
-  .form-header {
-    background: var(--surface);
-    border-radius: var(--radius);
-    border-top: 5px solid var(--teal);
-    padding: 24px 28px;
-    margin-bottom: 16px;
-    box-shadow: var(--shadow);
-  }
+  .form-header { background: var(--surface); border-radius: var(--radius); border-top: 5px solid var(--teal); padding: 24px 28px; margin-bottom: 16px; box-shadow: var(--shadow); }
   .form-header h1 { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
   .form-header p { font-size: 14px; color: var(--muted); line-height: 1.8; }
-  .notice {
-    background: var(--teal-light);
-    border-left: 3px solid var(--teal);
-    padding: 10px 14px;
-    border-radius: 6px;
-    font-size: 13px;
-    color: var(--teal-dark);
-    margin-top: 12px;
-    line-height: 1.7;
-  }
-
-  .card {
-    background: var(--surface);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-bottom: 14px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--line);
-  }
-  .page-label {
-    font-size: 11px; font-weight: 700;
-    color: var(--teal); letter-spacing: 0.1em;
-    margin-bottom: 18px; padding-bottom: 10px;
-    border-bottom: 1px solid var(--teal-light);
-  }
-
+  .notice { background: var(--teal-light); border-left: 3px solid var(--teal); padding: 10px 14px; border-radius: 6px; font-size: 13px; color: var(--teal-dark); margin-top: 12px; line-height: 1.7; }
+  .card { background: var(--surface); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 14px; box-shadow: var(--shadow); border: 1px solid var(--line); }
+  .page-label { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--teal-light); }
   .row-city { display: grid; grid-template-columns: 148px 1fr; gap: 12px; align-items: start; }
-
   .field { margin-bottom: 20px; }
   .field:last-child { margin-bottom: 0; }
-
   label { display: block; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
   .req { color: var(--red); margin-left: 2px; }
-
-  input[type="text"], input[type="date"], input[type="time"],
-  input[type="url"], textarea, select {
-    width: 100%; padding: 10px 14px;
-    border: 1.5px solid var(--line); border-radius: 8px;
-    font: inherit; font-size: 14px; color: var(--text);
-    background: var(--surface); transition: border-color 0.15s;
-    appearance: none; -webkit-appearance: none;
+  input[type="text"], input[type="date"], input[type="time"], input[type="url"], textarea, select {
+    width: 100%; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 8px;
+    font: inherit; font-size: 14px; color: var(--text); background: var(--surface);
+    transition: border-color 0.15s; appearance: none; -webkit-appearance: none;
   }
-  input:focus, textarea:focus, select:focus {
-    outline: none; border-color: var(--teal);
-    box-shadow: 0 0 0 3px rgba(71,177,170,0.12);
-  }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(71,177,170,0.12); }
   textarea { resize: vertical; min-height: 80px; }
-
   .select-wrap { position: relative; }
-  .select-wrap::after {
-    content: '▾'; position: absolute; right: 12px; top: 50%;
-    transform: translateY(-50%); color: var(--muted); pointer-events: none; font-size: 13px;
-  }
-
+  .select-wrap::after { content: '▾'; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; font-size: 13px; }
   .other-input { margin-top: 8px; display: none; }
   .other-input.show { display: block; }
   .hint { font-size: 12px; color: var(--muted); margin-top: 5px; }
-
-  .radio-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .radio-group { display: flex; gap: 16px; margin-top: 4px; flex-wrap: wrap; }
   .radio-item { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
   .radio-item input[type="radio"] { width: 16px; height: 16px; accent-color: var(--teal); flex-shrink: 0; }
-
   .steps { display: flex; gap: 8px; align-items: center; margin-bottom: 20px; }
-  .step {
-    width: 28px; height: 28px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 700;
-    background: var(--line); color: var(--muted); transition: all 0.2s;
-  }
+  .step { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; background: var(--line); color: var(--muted); transition: all 0.2s; }
   .step.active { background: var(--teal); color: #fff; }
   .step.done { background: var(--teal-light); color: var(--teal-dark); }
   .step-line { flex: 1; height: 2px; background: var(--line); border-radius: 1px; }
   .step-line.done { background: var(--teal-light); }
-
   .btn-row { display: flex; gap: 12px; margin-top: 8px; }
-  .btn {
-    flex: 1; padding: 13px 20px; border-radius: 10px;
-    font: inherit; font-size: 15px; font-weight: 700;
-    cursor: pointer; transition: all 0.15s; border: none;
-  }
+  .btn { flex: 1; padding: 13px 20px; border-radius: 10px; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.15s; border: none; }
   .btn-primary { background: var(--teal); color: #fff; }
   .btn-primary:hover { background: var(--teal-dark); }
   .btn-secondary { background: var(--surface); color: var(--muted); border: 1.5px solid var(--line); }
   .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
   .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
   .success-screen { display: none; text-align: center; padding: 48px 28px; }
   .success-screen.show { display: block; }
   .success-icon { font-size: 56px; margin-bottom: 16px; }
   .success-screen h2 { font-size: 22px; margin-bottom: 10px; }
   .success-screen p { color: var(--muted); font-size: 14px; line-height: 1.8; }
-  .btn-again {
-    display: inline-block; margin-top: 24px;
-    padding: 12px 28px; border-radius: 10px;
-    background: var(--teal); color: #fff;
-    font-weight: 700; font-size: 14px; cursor: pointer; border: none; font-family: inherit;
-  }
-
+  .btn-again { display: inline-block; margin-top: 24px; padding: 12px 28px; border-radius: 10px; background: var(--teal); color: #fff; font-weight: 700; font-size: 14px; cursor: pointer; border: none; font-family: inherit; }
   .field-error { font-size: 12px; color: var(--red); margin-top: 4px; display: none; }
   .field-error.show { display: block; }
   input.error, textarea.error, select.error { border-color: var(--red); }
-
-  .skeleton {
-    height: 40px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%; animation: shimmer 1.2s infinite;
-    border-radius: 8px;
-  }
+  .skeleton { height: 40px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: 8px; }
   @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  /* 系列活動場次 */
+  .session-block {
+    border: 1.5px solid var(--teal-light);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: var(--teal-light);
+    position: relative;
+  }
+  .session-label {
+    font-size: 12px; font-weight: 700; color: var(--teal-dark);
+    margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .session-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .session-grid .field { margin-bottom: 0; }
+  .session-note { margin-top: 10px; }
+  .btn-remove-session {
+    background: none; border: none; color: var(--muted); cursor: pointer;
+    font-size: 18px; line-height: 1; padding: 0; transition: color 0.15s;
+  }
+  .btn-remove-session:hover { color: var(--red); }
+  .btn-add-session {
+    width: 100%; padding: 10px; border-radius: 8px;
+    border: 1.5px dashed var(--teal); background: transparent;
+    color: var(--teal); font: inherit; font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: all 0.15s; margin-top: 4px;
+  }
+  .btn-add-session:hover { background: var(--teal-light); }
+
+  /* 單場/系列切換 */
+  .type-toggle { display: flex; gap: 0; border: 1.5px solid var(--line); border-radius: 8px; overflow: hidden; margin-top: 4px; }
+  .type-btn {
+    flex: 1; padding: 10px; text-align: center; font: inherit; font-size: 14px; font-weight: 700;
+    cursor: pointer; border: none; background: var(--surface); color: var(--muted); transition: all 0.15s;
+  }
+  .type-btn.active { background: var(--teal); color: #fff; }
 
   @media (max-width: 480px) {
     .row-city { grid-template-columns: 1fr; }
     .card { padding: 18px 16px; }
     .form-header { padding: 18px 16px; }
+    .session-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -182,7 +135,6 @@
 </div>
 
 <div class="wrap">
-
   <div class="form-header">
     <h1>家照據點活動上傳表單</h1>
     <p id="form-notice">請各縣市家照據點依活動資訊填寫下列欄位，可提供三個月內活動資訊。</p>
@@ -220,7 +172,6 @@
             </select>
           </div>
           <div>
-            <div id="center-skeleton" class="skeleton" style="display:none;"></div>
             <div class="select-wrap" id="center-wrap">
               <select id="center" disabled onchange="onCenterChange()">
                 <option value="">請先選擇縣市</option>
@@ -251,56 +202,78 @@
     <div class="card">
       <div class="page-label">第 2 頁，共 2 頁 ── 活動資訊</div>
 
+      <!-- 活動類型 -->
+      <div class="field">
+        <label>活動類型 <span class="req">*</span></label>
+        <div class="type-toggle">
+          <button class="type-btn active" id="type-single" onclick="setType('single')">單場活動</button>
+          <button class="type-btn" id="type-series" onclick="setType('series')">系列活動</button>
+        </div>
+      </div>
+
+      <!-- 活動圖片 -->
       <div class="field">
         <label for="image">活動圖片</label>
         <input type="url" id="image" placeholder="請貼上圖片網址（選填）">
         <div class="hint">若有宣傳圖，可直接貼上圖片網址（雲端請記得開放權限）</div>
       </div>
 
+      <!-- 活動名稱 -->
       <div class="field">
         <label for="title">活動名稱 <span class="req">*</span></label>
         <input type="text" id="title" placeholder="請輸入活動名稱">
         <div class="field-error" id="err-title">請填寫活動名稱</div>
       </div>
 
-      <div class="field">
-        <label for="date">活動日期 <span class="req">*</span></label>
-        <input type="date" id="date">
-        <div class="hint">西元年（2026/MM/DD）</div>
-        <div class="field-error" id="err-date">請選擇活動日期</div>
+      <!-- 單場：日期時間地點 -->
+      <div id="single-fields">
+        <div class="field">
+          <label for="date">活動日期 <span class="req">*</span></label>
+          <input type="date" id="date">
+          <div class="field-error" id="err-date">請選擇活動日期</div>
+        </div>
+        <div class="field">
+          <label for="time">活動時間 <span class="req">*</span></label>
+          <input type="time" id="time">
+          <div class="field-error" id="err-time">請選擇活動時間</div>
+        </div>
+        <div class="field">
+          <label for="location">活動地點 <span class="req">*</span></label>
+          <input type="text" id="location" placeholder="請輸入完整地址或場地名稱">
+          <div class="field-error" id="err-location">請填寫活動地點</div>
+        </div>
       </div>
 
-      <div class="field">
-        <label for="time">活動時間 <span class="req">*</span></label>
-        <input type="time" id="time">
-        <div class="field-error" id="err-time">請選擇活動時間</div>
+      <!-- 系列：場次區塊 -->
+      <div id="series-fields" style="display:none;">
+        <label style="margin-bottom:10px;">各場次資訊 <span class="req">*</span></label>
+        <div id="sessions-container"></div>
+        <button class="btn-add-session" onclick="addSession()">＋ 新增場次</button>
+        <div class="field-error" id="err-sessions" style="margin-top:8px;">請至少填寫一場場次資訊</div>
       </div>
 
-      <div class="field">
-        <label for="location">活動地點 <span class="req">*</span></label>
-        <input type="text" id="location" placeholder="請輸入完整地址或場地名稱">
-        <div class="field-error" id="err-location">請填寫活動地點</div>
-      </div>
-
-      <div class="field">
+      <!-- 活動簡介 -->
+      <div class="field" style="margin-top:20px;">
         <label for="desc">活動簡介（100字內）<span class="req">*</span></label>
         <textarea id="desc" placeholder="請簡短說明活動內容" maxlength="100"></textarea>
         <div class="field-error" id="err-desc">請填寫活動簡介</div>
       </div>
 
+      <!-- 報名方式 -->
       <div class="field">
         <label for="signup">報名方式 <span class="req">*</span></label>
         <textarea id="signup" placeholder="例如：請致電 02-XXXX-XXXX 報名，或線上報名連結" style="min-height:60px;"></textarea>
         <div class="field-error" id="err-signup">請填寫報名方式</div>
       </div>
 
+      <!-- 費用 -->
       <div class="field">
         <label>費用 <span class="req">*</span></label>
         <div class="radio-group">
           <label class="radio-item"><input type="radio" name="fee" value="免費" onchange="onFeeChange()"> 免費</label>
           <label class="radio-item"><input type="radio" name="fee" value="需費用" onchange="onFeeChange()"> 需費用</label>
         </div>
-        <div class="other-input" id="fee-amount-wrap" style="margin-top:8px;">
+        <div class="other-input" id="fee-amount-wrap">
           <input type="text" id="fee-amount" placeholder="請填寫金額，例如：200元">
         </div>
         <div class="field-error" id="err-fee">請選擇費用方式</div>
@@ -320,7 +293,6 @@
     <p>感謝您上傳活動資訊。<br>審核通過後將顯示於全國家照據點活動平台。<br>請於每月5號前完成上傳。</p>
     <button class="btn-again" onclick="resetForm()">繼續上傳新活動</button>
   </div>
-
 </div>
 
 <script>
@@ -330,10 +302,12 @@
 
   let centersCache = null;
   let centersByCity = {};
+  let currentType = 'single';
+  let sessionCount = 0;
 
-  // 頁面載入時同時預取據點資料＋config文字
   async function init() {
     await Promise.all([preloadCenters(), loadConfig()]);
+    addSession(); addSession(); addSession(); // 預設3場
   }
 
   async function preloadCenters() {
@@ -341,7 +315,6 @@
       const res = await fetch(CENTER_API);
       const data = await res.json();
       centersCache = Array.isArray(data) ? data : [];
-      // 依縣市分組，之後選縣市直接查，不用再過濾
       centersByCity = {};
       centersCache.forEach(c => {
         const city = String(c.city || '').replace(/台/g, '臺');
@@ -350,111 +323,132 @@
         if (!centersByCity[city]) centersByCity[city] = [];
         centersByCity[city].push(name);
       });
-    } catch (e) {
-      centersCache = [];
-      centersByCity = {};
-    }
+    } catch (e) { centersCache = []; centersByCity = {}; }
   }
 
   async function loadConfig() {
     try {
       const res = await fetch(CONFIG_API);
       const cfg = await res.json();
-      if (cfg.form_notice) {
-        document.getElementById('form-notice').textContent = cfg.form_notice.text || cfg.form_notice;
-      }
+      if (cfg.form_notice) document.getElementById('form-notice').textContent = cfg.form_notice.text || cfg.form_notice;
       if (cfg.form_deadline) {
         const val = cfg.form_deadline.text || cfg.form_deadline;
         document.getElementById('form-deadline').innerHTML = '📌 ' + val.replace(/\n/g, '<br>');
       }
-    } catch (e) {
-      // 保留 HTML 預設文字
-    }
+    } catch (e) {}
+  }
+
+  function setType(type) {
+    currentType = type;
+    document.getElementById('type-single').classList.toggle('active', type === 'single');
+    document.getElementById('type-series').classList.toggle('active', type === 'series');
+    document.getElementById('single-fields').style.display = type === 'single' ? 'block' : 'none';
+    document.getElementById('series-fields').style.display = type === 'series' ? 'block' : 'none';
+  }
+
+  function addSession() {
+    sessionCount++;
+    const id = sessionCount;
+    const container = document.getElementById('sessions-container');
+    const div = document.createElement('div');
+    div.className = 'session-block';
+    div.id = `session-${id}`;
+    div.innerHTML = `
+      <div class="session-label">
+        <span>第 ${id} 場</span>
+        ${id > 1 ? `<button class="btn-remove-session" onclick="removeSession(${id})" title="移除此場次">✕</button>` : ''}
+      </div>
+      <div class="session-grid">
+        <div class="field">
+          <label>日期 <span class="req">*</span></label>
+          <input type="date" id="s-date-${id}">
+        </div>
+        <div class="field">
+          <label>時間 <span class="req">*</span></label>
+          <input type="time" id="s-time-${id}">
+        </div>
+      </div>
+      <div class="session-note field">
+        <label>地點 <span class="req">*</span></label>
+        <input type="text" id="s-location-${id}" placeholder="場地名稱或地址">
+      </div>
+      <div class="session-note field" style="margin-bottom:0;">
+        <label>備註</label>
+        <input type="text" id="s-note-${id}" placeholder="例如：主題、講師、特別說明（選填）">
+      </div>
+    `;
+    container.appendChild(div);
+    renumberSessions();
+  }
+
+  function removeSession(id) {
+    const el = document.getElementById(`session-${id}`);
+    if (el) el.remove();
+    renumberSessions();
+  }
+
+  function renumberSessions() {
+    const blocks = document.querySelectorAll('.session-block');
+    blocks.forEach((block, i) => {
+      const labelEl = block.querySelector('.session-label span');
+      if (labelEl) labelEl.textContent = `第 ${i + 1} 場`;
+    });
+  }
+
+  function getSessionIds() {
+    return Array.from(document.querySelectorAll('.session-block')).map(b => b.id.replace('session-', ''));
   }
 
   function onCityChange() {
     const city = document.getElementById('city').value;
     const centerEl = document.getElementById('center');
     const otherWrap = document.getElementById('other-wrap');
-
     otherWrap.classList.remove('show');
-    document.getElementById('center-other').value = '';
-
-    if (!city) {
-      centerEl.innerHTML = '<option value="">請先選擇縣市</option>';
-      centerEl.disabled = true;
-      return;
-    }
-
+    document.getElementById('center-other') && (document.getElementById('center-other').value = '');
+    if (!city) { centerEl.innerHTML = '<option value="">請先選擇縣市</option>'; centerEl.disabled = true; return; }
     const names = centersByCity[city] || [];
-    centerEl.innerHTML = '';
-
-    if (names.length === 0) {
-      centerEl.innerHTML = '<option value="">（本縣市暫無據點資料）</option>';
-    } else {
-      centerEl.innerHTML = '<option value="">請選擇據點</option>';
-      names.forEach(name => {
-        const opt = document.createElement('option');
-        opt.value = name;
-        opt.textContent = name;
-        centerEl.appendChild(opt);
-      });
-    }
-
+    centerEl.innerHTML = names.length === 0
+      ? '<option value="">（本縣市暫無據點資料）</option>'
+      : '<option value="">請選擇據點</option>';
+    names.forEach(name => {
+      const opt = document.createElement('option');
+      opt.value = name; opt.textContent = name;
+      centerEl.appendChild(opt);
+    });
     const otherOpt = document.createElement('option');
-    otherOpt.value = '__other__';
-    otherOpt.textContent = '其他（請手動填寫單位名稱）';
+    otherOpt.value = '__other__'; otherOpt.textContent = '其他（請手動填寫單位名稱）';
     centerEl.appendChild(otherOpt);
     centerEl.disabled = false;
-  }
-
-  function onFeeChange() {
-    const val = document.querySelector('input[name="fee"]:checked')?.value;
-    const wrap = document.getElementById('fee-amount-wrap');
-    if (val === '需費用') {
-      wrap.classList.add('show');
-    } else {
-      wrap.classList.remove('show');
-      document.getElementById('fee-amount').value = '';
-    }
   }
 
   function onCenterChange() {
     const val = document.getElementById('center').value;
     const otherWrap = document.getElementById('other-wrap');
-    if (val === '__other__') {
-      otherWrap.classList.add('show');
-    } else {
-      otherWrap.classList.remove('show');
-      document.getElementById('center-other').value = '';
-    }
+    if (val === '__other__') { otherWrap.classList.add('show'); }
+    else { otherWrap.classList.remove('show'); document.getElementById('center-other') && (document.getElementById('center-other').value = ''); }
+  }
+
+  function onFeeChange() {
+    const val = document.querySelector('input[name="fee"]:checked')?.value;
+    const wrap = document.getElementById('fee-amount-wrap');
+    if (val === '需費用') { wrap.classList.add('show'); }
+    else { wrap.classList.remove('show'); document.getElementById('fee-amount').value = ''; }
   }
 
   function goPage2() {
     const city = document.getElementById('city').value;
     const center = document.getElementById('center').value;
-    const otherVal = document.getElementById('center-other').value.trim();
+    const otherVal = (document.getElementById('center-other')?.value || '').trim();
     const contact = document.getElementById('contact').value.trim();
     let ok = true;
-
     if (!city || !center || (center === '__other__' && !otherVal)) {
-      document.getElementById('err-city').classList.add('show');
-      ok = false;
-    } else {
-      document.getElementById('err-city').classList.remove('show');
-    }
-
+      document.getElementById('err-city').classList.add('show'); ok = false;
+    } else { document.getElementById('err-city').classList.remove('show'); }
     if (!contact) {
       document.getElementById('err-contact').classList.add('show');
-      document.getElementById('contact').classList.add('error');
-      ok = false;
-    } else {
-      document.getElementById('err-contact').classList.remove('show');
-      document.getElementById('contact').classList.remove('error');
-    }
-
+      document.getElementById('contact').classList.add('error'); ok = false;
+    } else { document.getElementById('err-contact').classList.remove('show'); document.getElementById('contact').classList.remove('error'); }
     if (!ok) return;
-
     document.getElementById('page1').style.display = 'none';
     document.getElementById('page2').style.display = 'block';
     document.getElementById('step1').classList.remove('active');
@@ -475,73 +469,84 @@
   }
 
   async function submitForm() {
-    const checks = [
-      ['title', 'err-title'],
-      ['date', 'err-date'],
-      ['time', 'err-time'],
-      ['location', 'err-location'],
-      ['desc', 'err-desc'],
-      ['signup', 'err-signup'],
-    ];
     let ok = true;
 
-    checks.forEach(([id, errId]) => {
+    // 共用欄位驗證
+    ['title','desc','signup'].forEach(id => {
       const val = document.getElementById(id).value.trim();
-      if (!val) {
-        document.getElementById(errId).classList.add('show');
-        document.getElementById(id).classList.add('error');
-        ok = false;
-      } else {
-        document.getElementById(errId).classList.remove('show');
-        document.getElementById(id).classList.remove('error');
-      }
+      if (!val) { document.getElementById(`err-${id}`).classList.add('show'); document.getElementById(id).classList.add('error'); ok = false; }
+      else { document.getElementById(`err-${id}`).classList.remove('show'); document.getElementById(id).classList.remove('error'); }
     });
 
     const feeEl = document.querySelector('input[name="fee"]:checked');
-    if (!feeEl) {
-      document.getElementById('err-fee').classList.add('show');
-      ok = false;
+    if (!feeEl) { document.getElementById('err-fee').classList.add('show'); ok = false; }
+    else { document.getElementById('err-fee').classList.remove('show'); }
+
+    // 單場驗證
+    let sessions = [];
+    if (currentType === 'single') {
+      ['date','time','location'].forEach(id => {
+        const val = document.getElementById(id).value.trim();
+        if (!val) { document.getElementById(`err-${id}`).classList.add('show'); document.getElementById(id).classList.add('error'); ok = false; }
+        else { document.getElementById(`err-${id}`).classList.remove('show'); document.getElementById(id).classList.remove('error'); }
+      });
+      sessions = [{
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        location: document.getElementById('location').value.trim(),
+        note: ''
+      }];
     } else {
-      document.getElementById('err-fee').classList.remove('show');
+      // 系列驗證
+      const ids = getSessionIds();
+      if (ids.length === 0) { document.getElementById('err-sessions').classList.add('show'); ok = false; }
+      else {
+        document.getElementById('err-sessions').classList.remove('show');
+        ids.forEach(id => {
+          const d = document.getElementById(`s-date-${id}`)?.value;
+          const t = document.getElementById(`s-time-${id}`)?.value;
+          const l = (document.getElementById(`s-location-${id}`)?.value || '').trim();
+          if (!d || !t || !l) ok = false;
+          sessions.push({ date: d || '', time: t || '', location: l, note: (document.getElementById(`s-note-${id}`)?.value || '').trim() });
+        });
+      }
     }
 
     if (!ok) return;
 
     const centerVal = document.getElementById('center').value;
     const centerName = centerVal === '__other__'
-      ? document.getElementById('center-other').value.trim()
+      ? (document.getElementById('center-other')?.value || '').trim()
       : centerVal;
+    const fee = feeEl.value === '需費用'
+      ? '需費用：' + (document.getElementById('fee-amount').value.trim() || '（未填金額）')
+      : feeEl.value;
 
-    const payload = {
+    const common = {
       city: document.getElementById('city').value,
       centerName,
       contactPerson: document.getElementById('contact').value.trim(),
       image: document.getElementById('image').value.trim(),
       title: document.getElementById('title').value.trim(),
-      date: document.getElementById('date').value,
-      time: document.getElementById('time').value,
-      location: document.getElementById('location').value.trim(),
       description: document.getElementById('desc').value.trim(),
       signupNote: document.getElementById('signup').value.trim(),
-      fee: feeEl.value === '需費用'
-        ? '需費用：' + (document.getElementById('fee-amount').value.trim() || '（未填金額）')
-        : feeEl.value,
+      fee,
+      isSeries: currentType === 'series',
+      totalSessions: sessions.length,
     };
 
     const btn = document.getElementById('submit-btn');
-    btn.textContent = '送出中…';
-    btn.disabled = true;
+    btn.textContent = '送出中…'; btn.disabled = true;
+
+    const payload = { common, sessions };
 
     try {
       await fetch(SUBMIT_API, {
-        method: 'POST',
-        mode: 'no-cors',
+        method: 'POST', mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-    } catch (e) {
-      // no-cors 下無法讀 response，視為成功
-    }
+    } catch (e) {}
 
     document.getElementById('page2').style.display = 'none';
     document.getElementById('success').classList.add('show');
@@ -555,17 +560,22 @@
     document.getElementById('step1').classList.remove('done');
     document.getElementById('step2').classList.remove('active');
     document.getElementById('line1').classList.remove('done');
-
-    ['contact','image','title','date','time','location','desc','signup'].forEach(id => {
-      document.getElementById(id).value = '';
-    });
+    ['contact','image','title','desc','signup'].forEach(id => { document.getElementById(id).value = ''; });
+    document.getElementById('date').value = '';
+    document.getElementById('time').value = '';
+    document.getElementById('location').value = '';
     document.getElementById('city').value = '';
     document.getElementById('center').innerHTML = '<option value="">請先選擇縣市</option>';
     document.getElementById('center').disabled = true;
     document.getElementById('other-wrap').classList.remove('show');
     document.querySelectorAll('input[name="fee"]').forEach(r => r.checked = false);
+    document.getElementById('fee-amount-wrap').classList.remove('show');
     document.getElementById('submit-btn').textContent = '送出表單';
     document.getElementById('submit-btn').disabled = false;
+    document.getElementById('sessions-container').innerHTML = '';
+    sessionCount = 0;
+    setType('single');
+    addSession(); addSession(); addSession();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
