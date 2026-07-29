@@ -98,9 +98,7 @@
     .card {
       background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
       overflow: hidden; box-shadow: var(--shadow); transition: 0.2s ease;
-      display: flex; flex-direction: column;
     }
-    .event-body { flex: 1; }
     .card:hover { transform: translateY(-2px); }
     .city-card { display: flex; flex-direction: column; gap: 12px; padding: 20px; }
     .city-card-top { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
@@ -126,13 +124,6 @@
     .event-body, .center-body { padding: 18px; display: grid; gap: 12px; }
     .meta { display: flex; gap: 8px; flex-wrap: wrap; }
     .event-title, .center-title { font-size: 20px; font-weight: 800; line-height: 1.35; }
-    .event-title {
-      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-    }
-    .chip { display: inline-flex; align-items: center; justify-content: center; min-height: 30px; padding: 4px 10px;
-      border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 13px; font-weight: 700;
-      white-space: nowrap;
-    }
     .detail-list { display: grid; gap: 8px; }
     .detail-item { display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: start; font-size: 14px; }
     .detail-item .label { color: var(--muted); font-weight: 700; }
@@ -374,7 +365,7 @@
             <div class="detail-list">
               <div class="detail-item"><div class="label">日期</div><div class="value">${escapeHtml(item.date || '-')}</div></div>
               <div class="detail-item"><div class="label">時間</div><div class="value">${escapeHtml(item.time || '-')}</div></div>
-              <div class="detail-item"><div class="label">地點</div><div class="value" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:0;min-width:100%;">${escapeHtml(item.location || '-')}</div></div>
+              <div class="detail-item"><div class="label">地點</div><div class="value">${escapeHtml(item.location || '-')}</div></div>
             </div>
             <div class="card-actions">
               <a class="btn btn-secondary" href="#/activity?id=${encodeURIComponent(item.id)}">查看詳情</a>
