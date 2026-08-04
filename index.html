@@ -222,20 +222,21 @@
       });
     }
 
-    async function fetchJson(url, retries = 3, delay = 1000) {
-      for (let i = 0; i < retries; i++) {
-        try {
-          const response = await fetch(url);
-          if (!response.ok) throw new Error('資料讀取失敗');
-          return await response.json();
-        } catch (err) {
-          if (i < retries - 1) {
-            await new Promise(res => setTimeout(res, delay * (i + 1)));
-          } else {
-            throw err;
-          }
-        }
-      }
+    async function fetchJson(url) {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('資料讀取失敗');
+      return response.json();
+    }
+
+    function getTodayTaipei() {
+      return new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit'
+      }).format(new Date());
+    }
+
+    function isUpcomingActivity(item) {
+      if (!item || !item.sortDate) return true;
+      return item.sortDate >= getTodayTaipei();
     }
 
     async function ensureData() {
@@ -247,28 +248,14 @@
           fetchJson(CONFIG_API)
         ]);
 
-        state.activities = Array.isArray(activities)
-          ? activities.map(a => ({ ...a, city: normalizeCity(a.city) })).filter(isUpcomingActivity).slice().sort(sortActivities)
-          : [];
-        state.centers = Array.isArray(centers)
-          ? centers.map(c => ({ ...c, city: normalizeCity(c.city) })).slice().sort(sortCenters)
-          : [];
+        state.activities = Array.isArray(activities) ? activities.filter(isUpcomingActivity).slice().sort(sortActivities) : [];
+        state.centers = Array.isArray(centers) ? centers.slice().sort(sortCenters) : [];
         state.config = config || {};
         state.error = null;
       } catch (error) {
         console.error(error);
         state.error = '目前無法讀取資料，請稍後再試。';
       }
-    }
-    function getTodayTaipei() {
-      return new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit'
-      }).format(new Date());
-    }
-
-    function isUpcomingActivity(item) {
-      if (!item || !item.sortDate) return true;
-      return item.sortDate >= getTodayTaipei();
     }
 
     function sortActivities(a, b) {
