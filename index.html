@@ -241,11 +241,12 @@
 
     async function ensureData() {
       if (state.activities && state.centers && state.config) return;
+      const ts = Date.now();
       try {
         const [activities, centers, config] = await Promise.all([
-          fetchJson(ACTIVITY_API),
-          fetchJson(CENTER_API),
-          fetchJson(CONFIG_API)
+          fetchJson(ACTIVITY_API + '&t=' + ts),
+          fetchJson(CENTER_API + '&t=' + ts),
+          fetchJson(CONFIG_API + '&t=' + ts)
         ]);
 
         state.activities = Array.isArray(activities) ? activities.filter(isUpcomingActivity).slice().sort(sortActivities) : [];
