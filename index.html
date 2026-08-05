@@ -222,10 +222,20 @@
       });
     }
 
-    async function fetchJson(url) {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('資料讀取失敗');
-      return response.json();
+    async function fetchJson(url, retries = 3) {
+      for (let i = 0; i < retries; i++) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error('資料讀取失敗');
+          return await response.json();
+        } catch (err) {
+          if (i < retries - 1) {
+            await new Promise(r => setTimeout(r, 1500 * (i + 1)));
+          } else {
+            throw err;
+          }
+        }
+      }
     }
 
     function getTodayTaipei() {
